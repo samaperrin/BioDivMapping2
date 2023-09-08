@@ -19,7 +19,10 @@ externalImport <- FALSE
 # Run script to define geographical region and resolution we are working with 
 # Initialise folders for storage of all run data
 if (!exists("dateAccessed")) {
-  dateAccessed <- as.character(Sys.Date())
+  directories <- dir("data")
+  directories <- directories[grep("run", directories)]
+  dateAccessed <- substr(directories[length(directories)], 5, 14)
+  # dateAccessed <- as.character(Sys.Date())
 }
 
 speciesDataList <- readRDS(paste0("data/run_", dateAccessed, "/temp/speciesDataImported.RDS"))
