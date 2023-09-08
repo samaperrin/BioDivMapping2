@@ -53,15 +53,24 @@ for (ds in 1:length(speciesData)) {
   dataType <- unique(focalData$dataType)
   datasetName <- names(speciesData)[ds]
   if (dataType == "PA" & datasetName != "ANOData") { 
-    # Here we apply our conversion script for presence/absence data
-    source("utils/presenceAbsenceConversion.R")
+    # Here we apply our conversion script for presence/absence data - tryCatch is for if any links to endpoints are broken
+    tryCatch(
+      {
+        newDataset <- NULL
+        source("utils/presenceAbsenceConversion.R")
+      },
+      error=function(e) {
+        message(paste0('An error occurred and dataset ', datasetName, ' was not produced.'))
+      }
+    )
   } else if (datasetName == "ANOData") {
     # ANO data has a different nedpoint and has already been taken care of in the utils/ANOIntegration scropt
     newDataset <- focalData[,c("simpleScientificName", "SHAPE", "individualCount", "dataType")]
+    newDataset$taxa <- focalSpecies$taxonomicGroup[match(newDataset$simpleScientificName, focalSpecies$species)]
     newDataset <- rename(newDataset, geometry = SHAPE)
   } else {
     # No need to do anything to presence only data (yet) except add individualCount column
-    newDataset <- focalData[,c("simpleScientificName", "geometry", "dataType")]
+    newDataset <- focalData[,c("simpleScientificName", "geometry", "dataType", "taxa")]
   }
   processedData[[ds]] <- newDataset
   namesProcessedData[ds] <- datasetName
@@ -78,7 +87,7 @@ saveRDS(processedData, "visualisation/hotspotMaps/data/processedDataList.RDS")
 ###----------------------###
 
 # To add metadata we need to reformat the data as one data frame, as opposed to the list format it is currently in.
- 
+
 # Edit data frames to have same number of columns
 processedDataForCompilation <- lapply(1:length(processedData), FUN = function(x) {
   dataset <- processedData[[x]]
@@ -87,7 +96,7 @@ processedDataForCompilation <- lapply(1:length(processedData), FUN = function(x)
   if (datasetType == "PO") {
     dataset$individualCount <- 1
   }
-  datasetShort <- dataset[,c("simpleScientificName", "dataType", "individualCount", "geometry")]
+  datasetShort <- dataset[,c("simpleScientificName", "dataType", "individualCount", "geometry", "taxa")]
   datasetShort$datasetName <- datasetName
   datasetShort
 }
@@ -96,7 +105,6 @@ processedDataForCompilation <- lapply(1:length(processedData), FUN = function(x)
 # Combine into one data frame and add date accessed
 processedDataCompiled <- do.call(rbind, processedDataForCompilation)
 processedDataCompiled$dateAccessed <- Sys.Date()
-processedDataCompiled$taxa <- focalSpecies$taxonomicGroup[match(processedDataCompiled$simpleScientificName, focalSpecies$species)]
 
 # Turn geometry column to latitude and longitude
 processedDataDF <- st_drop_geometry(processedDataCompiled)
@@ -110,7 +118,7 @@ rmarkdown::render("utils/metadataProduction.Rmd", output_file = paste0("../",fol
 ###-----------------------###
 
 if (uploadToWallace == TRUE) {
-
+  
   # Connect to database
   targetDatabase <- "species_occurrences"
   source("utils/initiateWallaceConnection.R")

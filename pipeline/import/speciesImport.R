@@ -17,8 +17,8 @@ library(rinat)
 ###-----------------###
 
 # Run script to define geographical region and resolution we are working with 
-if (!exists(level)) {level <- "county"}  # level can be country, county, municipality, or points (examples of points given below)
-if (!exists(region)) {region <- "50"}
+if (!exists("level")) {level <- "county"}  # level can be country, county, municipality, or points (examples of points given below)
+if (!exists("region")) {region <- "50"}
 runBuffer <- FALSE
 #points <- c(4.641979, 57.97976, 31.05787, 71.18488)
 #names(points) <- c("north", "south", "east", "west")
@@ -43,24 +43,23 @@ if (!file.exists(folderName)) {
 ### 2. GBIF Import ####
 ###-----------------###
 
+# Import GBIF compilation function
+source("utils/compileGBIFImport.R")
+  
 # Import GBIF Data
 gbifImportsPerTaxa <- lapply(focalTaxa, FUN = function(x) {
   focalSpeciesImport <- focalSpecies$species[focalSpecies$taxonomicGroup == x]
   GBIFImport <- occ_data(scientificName = focalSpeciesImport, hasCoordinate = TRUE, limit = 3000, 
                          geometry = st_bbox(regionGeometry), coordinateUncertaintyInMeters = '0,500')
-  GBIFImportCompiled <- do.call(rbind, lapply(GBIFImport, FUN = function(z) {
-    dataSubset <- z$data
-    
-    # datasetName does not exist in some species for some reason. In these cases, let it equal NA
-    if (!("datasetName" %in% colnames(dataSubset))) {
-      dataSubset$datasetName <- NA
-    }
-    dataSubset[,c("acceptedScientificName", "decimalLongitude", "decimalLatitude", "basisOfRecord", "year", 
-                  "datasetKey", "coordinateUncertaintyInMeters", "datasetName")]
-  }))
+  # compile import 
+  if(all(names(GBIFImport) == c("meta", "data"))){  # if only one species selected
+    GBIFImportCompiled <- CompileGBIFImport(GBIFImport)
+  } else if(any(names(GBIFImport) %in% focalSpeciesImport)){  # if multiple species 
+    GBIFImportCompiled <- do.call(rbind, lapply(GBIFImport, CompileGBIFImport))
+  }
   GBIFImportCompiled$simpleScientificName <- gsub(" ", "_", word(GBIFImportCompiled$acceptedScientificName, 1,2, sep=" "))
   GBIFImportCompiled
-} )
+})
 GBIFImportCompiled <- do.call(rbind, gbifImportsPerTaxa)
 GBIFImportCompiled$taxa <- focalSpecies$taxonomicGroup[match(GBIFImportCompiled$simpleScientificName, focalSpecies$species)]
 
@@ -98,7 +97,7 @@ names(GBIFLists) <- unique(GBIFImportCompiled$name)
 ###----------------###
 
 source("utils/importANOData.R")
-GBIFLists[["ANOData"]] <- ANOData
+if(exists("ANOData")) {GBIFLists[["ANOData"]] <- ANOData}
 
 
 ###--------------------###
