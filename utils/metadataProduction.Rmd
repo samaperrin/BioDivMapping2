@@ -22,14 +22,14 @@ We begin with basic information about the pipeline run.
 region <- attr(speciesDataList, "region")
 level <- attr(speciesDataList, "level")
 focalSpecies <- read.csv("../data/external/focalSpecies.csv")
-focalTaxa <- unique(focalSpecies$taxonomicGroup)
+focalTaxa <- unique(na.omit(processedDataCompiled$taxa)) # unique(focalSpecies$taxonomicGroup)
 infoNames <- c("Date",
                "Taxa",
                "Region type",
                "Region code",
                "Total species",
                "Total datasets used")
-info <- c(dateAccessed, paste(focalTaxa, collapse = ", "), level, region, nrow(focalSpecies),
+info <- c(dateAccessed, paste(focalTaxa, collapse = ", "), level, paste(region, collapse = ", "), nrow(focalSpecies),
           length(unique(processedDataDF$datasetName)))
 basicInfo <- data.frame(Characteristic = infoNames, Value = info)
 knitr::kable(basicInfo)
