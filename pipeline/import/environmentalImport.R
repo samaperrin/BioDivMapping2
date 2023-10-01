@@ -10,6 +10,10 @@
 library(raster)
 library(terra)
 library(sf)
+library(fasterize)
+
+# Import local functions
+sapply(list.files("functions/import/environment", full.names = TRUE), source)
 
 ###-----------------###
 ### 1. Preparation ####
@@ -44,6 +48,9 @@ if (length(emptyParameters) > 0) {
                  },
                if (length(vec) == 1) "a source" else "sources"))}
 
+# Define folders for storage of all run data
+tempFolderName <- paste0("data/run_", dateAccessed, "/temp/")
+
 # Correct crs
 newproj <- "+proj=longlat +ellps=WGS84 +no_defs"
 
@@ -63,9 +70,8 @@ for (parameter in 1:length(selectedParameters)) {
   if (external == FALSE) {
     rasterisedVersion <- rast(paste0("data/external/environmentalCovariates/",focalParameter, ".tiff"))
   } else {
-    # source(paste0("utils/environmentalImport/", focalParameter, ".R"))
     dataSource <- parameters$dataSource[parameters$parameters == focalParameter]
-    source(paste0("utils/environmentalImport/get_", dataSource, ".R"))
+    source(paste0("pipeline/import/utils/defineEnvSource.R"))
   }
   parameterList[[parameter]] <- rasterisedVersion
 }
@@ -93,5 +99,5 @@ names(parametersCropped) <- selectedParameters
 ###--------------------###
 
 # Save both to temp file for model processing and visualisation folder for mapping
-writeRaster(parametersCropped, paste0("data/run_", dateAccessed,"/temp/environmentalDataImported.tiff"), overwrite=TRUE)
+writeRaster(parametersCropped, paste0("data/run_", dateAccessed,"/environmentalDataImported.tiff"), overwrite=TRUE)
 writeRaster(parametersCropped, "visualisation/hotspotMaps/data/covariateDataList.tiff", overwrite=TRUE)
