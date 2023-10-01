@@ -5,6 +5,7 @@
 # This source file defines the region inside which all our occurrences and envrionmental data will be contained
 
 library(csmaps)
+library(rnaturalearth)
 
 # Figure out if region and level are supplied. If they are not, check whether a speciesDataList exists in the
 # environment, and use the attributes to automatically find these parameters.
@@ -31,9 +32,14 @@ if (level == "municipality") {
   regionCode <- paste0("county_nor", region)
   regionGeometry <- nor_county_map_b2020_default_sf$geometry[nor_county_map_b2020_default_sf$location_code == regionCode]
 } else if (level == "country") {
-  regionGeometry <- st_combine(nor_county_map_b2020_default_sf$geometry)
-  # ALso need to remove internal borders
-  regionGeometry <- st_union(st_make_valid(regionGeometry))
+  regionGeometry <- regionGeometry <- ne_countries("large", type = "map_units", geounit = region, returnclass = "sf")
+  regionGeometry <- st_as_sfc(regionGeometry)
+  # regionGeometry <- st_combine(nor_county_map_b2020_default_sf$geometry)
+  # # ALso need to remove internal borders
+  # regionGeometry <- st_union(st_make_valid(regionGeometry))
+} else if (level == "continent") {
+  regionGeometry <- ne_countries("large", continent = region, returnclass = "sf")
+  regionGeometry <- st_as_sfc(regionGeometry)
 } else {
     ## create a matrix of coordinates that also 'close' the polygon
     res <- matrix(c(points['north'], points['west'],
