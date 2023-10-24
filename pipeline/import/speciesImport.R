@@ -89,6 +89,15 @@ gbifImportsPerTaxa <- lapply(focalTaxa, FUN = function(x) {
 GBIFImportCompiled <- do.call(bind_rows, gbifImportsPerTaxa)
 GBIFImportCompiled$taxa <- focalSpecies$taxonomicGroup[match(GBIFImportCompiled$simpleScientificName, focalSpecies$species)]
 
+# Remove species that were not an identical match
+GBIFSpecies <- unique(GBIFImportCompiled$simpleScientificName) 
+falseMatch <- GBIFSpecies[!(GBIFSpecies %in% focalSpecies$species)]
+if(length(falseMatch) > 0){
+  message(sprintf("The following %s downloaded species were not an identical match and will be removed: \n%s",
+  length(falseMatch), paste(falseMatch, collapse = ", ")))
+  GBIFImportCompiled <- GBIFImportCompiled[GBIFImportCompiled$simpleScientificName %in% focalSpecies$species,]
+}
+
 ###------------------------------###
 ### 3. Attach relevant metadata ####
 ###------------------------------###
