@@ -41,7 +41,9 @@ importANOData <- function(focalSpecies, destinationFolder, regionGeometry,
   
   # Narrow down to only species we are looking for
   ANOSpecies <- ANOSpeciesFull[ANOSpeciesFull$simpleScientificName %in% focalSpecies$species,]
-  
+  if(nrow(ANOSpecies) == 0){
+    ANOData <- NULL
+  } else {
   ANOSpeciesTable <- as.data.frame(table(ANOSpecies$ParentGlobalID, ANOSpecies$simpleScientificName), 
                                    stringsAsFactors = FALSE)
   # Convert anything more than 2 to a presence
