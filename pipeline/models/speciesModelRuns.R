@@ -73,35 +73,34 @@ if (externalImport == TRUE) {
 # Import local functions
 sapply(list.files("functions/models", full.names = TRUE), source)
 
-# Prepare models
-workflowList <- modelPreparation(focalSpecies, regionGeometry, modelFolderName, environmentalDataList)
+  ag <- 100
+  environmentalDataList_ag <- aggregate(environmentalDataList, ag)
+  # Prepare models
+  workflowList <- modelPreparation(focalSpecies, speciesData, st_union(regionGeometry), modelFolderName, environmentalDataList_ag)
 
+  ###----------------###
+  ### 2. Run models ####
+  ###----------------###
 
-###----------------###
-### 2. Run models ####
-###----------------###
+  print("Starting model run.")
 
-print("Starting model run.")
+  # time_taken <- system.time({
+    # Begin running different species groups
+    for (i in seq_along(focalTaxa)) {
+      # Define species group to create
+      focalGroup <- focalTaxa[i]
+      workflow <- workflowList[[focalGroup]]
 
-# Begin running different species groups
-for (i in 1:length(focalTaxa)) {
-  
-  # Define species group to create
-  focalGroup <- focalTaxa[i]
-  workflow <- workflowList[[focalGroup]]
-
-  # Add model characteristics (mesh, priors, output)
-  workflow$addMesh(cutoff= myMesh$cutoff, max.edge=myMesh$max.edge, offset= myMesh$offset)
-  workflow$specifySpatial(prior.range = c(300000, 0.05),
-                          prior.sigma = c(500, 0.2)) #100
-  workflow$workflowOutput('Maps')
-  workflow$modelOptions(INLA = list(control.inla=list(int.strategy = 'eb', cmin = 0),
-                                    safe = TRUE))
-  
-  # Run model (this directly saves output to folder specified above)
-  sdmWorkflow(workflow)
-}
-
+      # Add model characteristics (mesh, priors, output)
+      workflow$addMesh(cutoff= myMesh$cutoff, max.edge=myMesh$max.edge, offset= myMesh$offset)
+      workflow$specifySpatial(prior.range = c(300000, 0.05),
+                            prior.sigma = c(500, 0.2)) #100
+      workflow$workflowOutput(c('Model', 'Maps'))
+      workflow$modelOptions(INLA = list(control.inla = list(int.strategy = 'eb', cmin = 0),
+                                      safe = TRUE))
+      # Run model (this directly saves output to folder specified above)
+      sdmWorkflow(workflow)
+    }
 ###------------------------------###
 ### 3. Get biodiversity metrics ####
 ###------------------------------###
