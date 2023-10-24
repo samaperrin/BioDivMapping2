@@ -33,6 +33,10 @@ source("pipeline/import/speciesImport.R")
 
 # Next we run the environmental import script, which brings in a set of rasters that apply to the region
 # we defined in the last step.
+# use mesh for defining download extent:
+myMesh <- list(cutoff = 100000, max.edge = c(1000000, 1000000), offset = c(800000, 40000))
+mesh <- meshTest(myMesh, regionGeometry, print = F) %>% 
+    inla.mesh_to_sf()
 
 source("pipeline/import/environmentalImport.R")
 
