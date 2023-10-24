@@ -65,7 +65,7 @@ regionGeometry_buffer <- vect(st_buffer(st_union(mesh), 20000))
 
 parameterList <- list()
 
-for (parameter in 1:length(selectedParameters)) {
+for (parameter in seq_along(selectedParameters)) {
   focalParameter <- selectedParameters[parameter]
   external <- parameters$external[parameters$parameters == focalParameter]
   
