@@ -71,11 +71,14 @@ gbifImportsPerTaxa <- lapply(focalTaxa, FUN = function(x) {
                          geometry = st_bbox(regionGeometry), coordinateUncertaintyInMeters = '0,500')
   # remove any species with no data
   no_data <- which(sapply(GBIFImport, function(x){length(x$data)}) == 0)
-  warning(sprintf("The following species have no GBIF records and will be excluded: %s",
-  paste(names(no_data), collapse=",")))
-  GBIFImport <- GBIFImport[-no_data]
+  if(length(no_data) > 0){
+    warning(sprintf("The following species (n = %s) have no GBIF records and will be excluded: %s",
+    length(no_data),
+    paste(names(no_data), collapse=", ")))
+    GBIFImport <- GBIFImport[-no_data]
+  }
   # compile import 
-  if(all(names(GBIFImport) == c("meta", "data"))){  # if only one species selected
+  if(identical(names(GBIFImport), c("meta", "data"))){  # if only one species selected
     GBIFImportCompiled <- compileGBIFImport(GBIFImport)
   } else if(any(names(GBIFImport) %in% focalSpeciesImport)){  # if multiple species 
     GBIFImportCompiled <- do.call(rbind, lapply(GBIFImport, compileGBIFImport))
@@ -83,7 +86,7 @@ gbifImportsPerTaxa <- lapply(focalTaxa, FUN = function(x) {
   GBIFImportCompiled$simpleScientificName <- gsub(" ", "_", word(GBIFImportCompiled$acceptedScientificName, 1,2, sep=" "))
   GBIFImportCompiled
 })
-GBIFImportCompiled <- do.call(rbind, gbifImportsPerTaxa)
+GBIFImportCompiled <- do.call(bind_rows, gbifImportsPerTaxa)
 GBIFImportCompiled$taxa <- focalSpecies$taxonomicGroup[match(GBIFImportCompiled$simpleScientificName, focalSpecies$species)]
 
 ###------------------------------###
