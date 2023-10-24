@@ -28,7 +28,7 @@ sapply(list.files("functions", full.names = TRUE, recursive = TRUE), source)
 # names(pointsExample) <- c("north", "south", "east", "west")
 
 level <- "county"
-region <- "50"
+region <- c("30", "03", "34", "38", "11", "42", "46")
 source("pipeline/import/speciesImport.R")
 
 # Next we run the environmental import script, which brings in a set of rasters that apply to the region
