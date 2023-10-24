@@ -1,38 +1,298 @@
-species,taxonomicGroup,selected,threatened,commonName,redListStatus
-Fraxinus_excelsior,vascularPlants,FALSE,TRUE,European ash,Endangered
-Arnica_montana,vascularPlants,FALSE,TRUE,Mountain arnica,Endangered
-Ulmus_glabra,vascularPlants,FALSE,TRUE,Scots elm,Endangered
-Poa_glauca,vascularPlants,FALSE,FALSE,Glaucous bluegrass,Least concern
-Carex_atrata,vascularPlants,FALSE,FALSE,Black alpine sedge,Least concern
-Juniperus_communis,vascularPlants,FALSE,FALSE,Common juniper,Least concern
-Saxifraga_aizoides,vascularPlants,FALSE,FALSE,Yellow saxifrage,Least concern
-Vicia_sepium,vascularPlants,FALSE,FALSE,Bush vetch,Least concern
-Agrostis_capillaris,vascularPlants,FALSE,FALSE,Common bent,Least concern
-Geranium_sylvaticum,vascularPlants,FALSE,FALSE,Wood crane’s bill,Least concern
-Betula_pubescens,vascularPlants,FALSE,FALSE,Silver birch,Least concern
-Alectoria_sarmentosa,fungi,FALSE,FALSE,Common witch’s-hair lichen,Least concern
-Lobaria_pulmonaria,fungi,FALSE,FALSE,Tree lungwort,Least concern
-Bactrospora_corticola,fungi,FALSE,FALSE,Bactrospora corticola,Least concern
-Lecanactis_abietina,fungi,FALSE,FALSE,Old-wood lichen,Least concern
-Cuphophyllus_pratensis,fungi,FALSE,FALSE,Meadow waxcap,Least concern
-Hygrocybe_conica,fungi,FALSE,FALSE,Witch’s hat,Least concern
-Sclerophora_pallida,fungi,FALSE,FALSE,Sclerophora pallida,Least concern
-Cuphophyllus_virgineus,fungi,FALSE,FALSE,Snowy waxcap,Least concern
-Niemelaea_consobrina,fungi,FALSE,TRUE,Niemelaea consobrina,Vulnerable
-Entoloma_neglectum,fungi,FALSE,TRUE,Entoloma neglectum,Vulnerable
-Hydnellum_martioflavum,fungi,FALSE,TRUE,Hydnellum martioflavum,Vulnerable
-Mitopus_morio,spiders,FALSE,FALSE,Saddleback harvestman,Least concern
-Centromerus_arcanus,spiders,FALSE,FALSE,Centromerus arcanus,Least concern
-Arctosa_cinerea,spiders,FALSE,TRUE,Northern bear spider,Endangered
-Psammitis_sabulosus,spiders,FALSE,TRUE,Sand crab-spider,Vulnerable
-Singa_nitidula,spiders,FALSE,TRUE,Singa nitidula,Endangered
-Tenuiphantes_alacris,spiders,FALSE,FALSE,Tenuiphantes alacris,Least concern
-Diplocentria_bidentata,spiders,FALSE,FALSE,Diplocentria bidentata,Least concern
-Rhagium_inquisitor,longhornBeetles,TRUE,FALSE,Ribbed pine borer,Least concern
-Rhagium_mordax,longhornBeetles,FALSE,FALSE,Black-spotted longhorn beetle,Least concern
-Gaurotes_virginea,longhornBeetles,FALSE,FALSE,Gaurotes virginea,Least concern
-Tetropium_castaneum,longhornBeetles,FALSE,FALSE,Brown spruce longhorn beetle,Least concern
-Oxymirus_cursor,longhornBeetles,FALSE,FALSE,Wood-boring beetle,Least concern
-Anastrangalia_sanguinolenta,longhornBeetles,FALSE,FALSE,Blood-red longhorn beetle,Least concern
-Evodinus_borealis,longhornBeetles,FALSE,TRUE,Evodinus borealis,Endangered
-Gnathacmaeops_pratensis,longhornBeetles,FALSE,TRUE,Gnathacmaeops pratensis,Endangered
+species,taxonomicGroup,selected,threatened,commonName,redListStatus,functionalGroup
+Alectoria_sarmentosa,fungi,FALSE,FALSE,Common witch’s-hair lichen,Least concern,NA
+Bactrospora_corticola,fungi,FALSE,FALSE,Bactrospora corticola,Least concern,NA
+Cuphophyllus_pratensis,fungi,FALSE,FALSE,Meadow waxcap,Least concern,NA
+Cuphophyllus_virgineus,fungi,FALSE,FALSE,Snowy waxcap,Least concern,NA
+Entoloma_neglectum,fungi,FALSE,TRUE,Entoloma neglectum,Vulnerable,NA
+Hydnellum_martioflavum,fungi,FALSE,TRUE,Hydnellum martioflavum,Vulnerable,NA
+Hygrocybe_conica,fungi,FALSE,FALSE,Witch's hat,Least concern,NA
+Lecanactis_abietina,fungi,FALSE,FALSE,Old-wood lichen,Least concern,NA
+Lobaria_pulmonaria,fungi,FALSE,FALSE,Tree lungwort,Least concern,NA
+Niemelaea_consobrina,fungi,FALSE,TRUE,Niemelaea consobrina,Vulnerable,NA
+Sclerophora_pallida,fungi,FALSE,FALSE,Sclerophora pallida,Least concern,NA
+Anastrangalia_sanguinolenta,longhornBeetles,FALSE,FALSE,Blood-red longhorn beetle,Least concern,NA
+Gaurotes_virginea,longhornBeetles,FALSE,FALSE,Gaurotes virginea,Least concern,conif
+Oxymirus_cursor,longhornBeetles,FALSE,FALSE,Wood-boring beetle,Least concern,gen
+Rhagium_inquisitor,longhornBeetles,FALSE,FALSE,Ribbed pine borer,Least concern,gen
+Rhagium_mordax,longhornBeetles,FALSE,FALSE,Black-spotted longhorn beetle,Least concern,gen
+Tetropium_castaneum,longhornBeetles,FALSE,FALSE,Brown spruce longhorn beetle,Least concern,conif
+Arctosa_cinerea,spiders,FALSE,TRUE,Northern bear spider,Endangered,NA
+Centromerus_arcanus,spiders,FALSE,FALSE,Centromerus arcanus,Least concern,NA
+Diplocentria_bidentata,spiders,FALSE,FALSE,Diplocentria bidentata,Least concern,NA
+Mitopus_morio,spiders,FALSE,FALSE,Saddleback harvestman,Least concern,NA
+Psammitis_sabulosus,spiders,FALSE,TRUE,Sand crab-spider,Vulnerable,NA
+Singa_nitidula,spiders,FALSE,TRUE,Singa nitidula,Endangered,NA
+Tenuiphantes_alacris,spiders,FALSE,FALSE,Tenuiphantes alacris,Least concern,NA
+Agrostis_capillaris,vascularPlants,FALSE,FALSE,Common bent,Least concern,NA
+Betula_pubescens,vascularPlants,FALSE,FALSE,Silver birch,Least concern,NA
+Geranium_sylvaticum,vascularPlants,FALSE,FALSE,Wood crane’s bill,Least concern,NA
+Saxifraga_aizoides,vascularPlants,FALSE,FALSE,Yellow saxifrage,Least concern,NA
+Vicia_sepium,vascularPlants,FALSE,FALSE,Bush vetch,Least concern,NA
+Abraeus_parvulus,ForestBeetles,FALSE,NA,Abraeus parvulus,NA,NA
+Acanthocinus_griseus,ForestBeetles,TRUE,TRUE,Acanthocinus griseus,Endangered,conif
+Acmaeodera_degener,ForestBeetles,FALSE,NA,Acmaeodera degener,NA,NA
+Acmaeops_marginatus,ForestBeetles,FALSE,TRUE,Acmaeops marginatus,Endangered,NA
+Aegosoma_scabricorne,ForestBeetles,FALSE,NA,Aegosoma scabricorne,NA,NA
+Aesalus_scarabaeoides,ForestBeetles,TRUE,NA,Aesalus scarabaeoides,NA,decid
+Agnathus_decoratus,ForestBeetles,FALSE,NA,Agnathus decoratus,NA,NA
+Akimerus_schaefferi,ForestBeetles,FALSE,NA,Akimerus schaefferi,NA,NA
+Allecula_rhenana,ForestBeetles,TRUE,NA,Allecula rhenana,NA,decid
+Alosterna_ingrica,ForestBeetles,FALSE,NA,Alosterna ingrica,NA,NA
+Ampedus_auripes,ForestBeetles,FALSE,NA,Ampedus auripes,NA,NA
+Ampedus_brunnicornis,ForestBeetles,FALSE,NA,Ampedus brunnicornis,NA,NA
+Ampedus_cardinalis,ForestBeetles,TRUE,NA,Ampedus cardinalis,NA,decid
+Ampedus_elegantulus,ForestBeetles,TRUE,NA,Ampedus elegantulus,NA,decid
+Ampedus_hjorti,ForestBeetles,TRUE,TRUE,Ampedus hjorti,Vulnerable,decid
+Ampedus_melanurus,ForestBeetles,FALSE,NA,Ampedus melanurus,NA,NA
+Ampedus_quadrisignatus,ForestBeetles,FALSE,NA,Ampedus quadrisignatus,NA,NA
+Ampedus_suecicus,ForestBeetles,TRUE,NA,Ampedus suecicus,NA,gen
+Ampedus_tristis,ForestBeetles,TRUE,NA,Ampedus tristis,NA,gen
+Anisoxya_fuscula,ForestBeetles,TRUE,TRUE,Anisoxya fuscula,Vulnerable,decid
+Anitys_rubens,ForestBeetles,TRUE,NA,Anitys rubens,NA,decid
+Batrisodes_hubenthali,ForestBeetles,FALSE,NA,Batrisodes hubenthali,NA,NA
+Bibloporus_ultimus,ForestBeetles,FALSE,NA,Bibloporus ultimus,NA,NA
+Bius_thoracicus,ForestBeetles,TRUE,TRUE,Bius thoracicus,Endangered,gen
+Bolitochara_lucida,ForestBeetles,TRUE,NA,Bolitochara lucida,NA,decid
+Bolitophagus_interruptus,ForestBeetles,FALSE,NA,Bolitophagus interruptus,NA,NA
+Boros_schneideri,ForestBeetles,TRUE,NA,Boros schneideri,NA,gen
+Brachygonus_ruficeps,ForestBeetles,FALSE,NA,Brachygonus ruficeps,NA,NA
+Buprestis_splendens,ForestBeetles,TRUE,NA,Buprestis splendens,NA,conif
+Calambus_bipustulatus,ForestBeetles,TRUE,TRUE,Calambus bipustulatus,Endangered,decid
+Calitys_scabra,ForestBeetles,TRUE,TRUE,Calitys scabra,Vulnerable,gen
+Camptorhinus_statua,ForestBeetles,FALSE,NA,Camptorhinus statua,NA,NA
+Cardiophorus_gramineus,ForestBeetles,TRUE,NA,Cardiophorus gramineus,NA,decid
+Cerambyx_cerdo,ForestBeetles,TRUE,NA,Cerambyx cerdo,NA,decid
+Cerophytum_elateroides,ForestBeetles,FALSE,NA,Cerophytum elateroides,NA,NA
+Ceruchus_chrysomelinus,ForestBeetles,TRUE,TRUE,Ceruchus chrysomelinus,Endangered,gen
+Colydium_filiforme,ForestBeetles,TRUE,NA,Colydium filiforme,NA,decid
+Cornumutila_lineata,ForestBeetles,FALSE,NA,Cornumutila lineata,NA,NA
+Corticaria_interstitialis,ForestBeetles,TRUE,NA,Corticaria interstitialis,NA,gen
+Corticaria_lapponica,ForestBeetles,TRUE,NA,Corticaria lapponica,NA,decid
+Corticaria_lateritia,ForestBeetles,TRUE,NA,Corticaria lateritia,NA,conif
+Corticaria_orbicollis,ForestBeetles,TRUE,NA,Corticaria orbicollis,NA,gen
+Corticeus_bicoloroides,ForestBeetles,FALSE,NA,Corticeus bicoloroides,NA,NA
+Corticeus_fasciatus,ForestBeetles,TRUE,NA,Corticeus fasciatus,NA,decid
+Corticeus_suturalis,ForestBeetles,TRUE,NA,Corticeus suturalis,NA,conif
+Corticeus_versipellis,ForestBeetles,FALSE,NA,Corticeus versipellis,NA,NA
+Crepidophorus_mutilatus,ForestBeetles,FALSE,NA,Crepidophorus mutilatus,NA,NA
+Cryptolestes_abietis,ForestBeetles,TRUE,NA,Cryptolestes abietis,NA,conif
+Cryptophagus_confusus,ForestBeetles,TRUE,NA,Cryptophagus confusus,NA,gen
+Cryptophagus_lysholmi,ForestBeetles,FALSE,NA,Cryptophagus lysholmi,NA,NA
+Cryptophagus_quercinus,ForestBeetles,TRUE,NA,Cryptophagus quercinus,NA,decid
+Cucujus_cinnaberinus,ForestBeetles,TRUE,TRUE,Red flat bark beetle,Near threatened,gen
+Cucujus_haematodes,ForestBeetles,FALSE,NA,Cucujus haematodes,NA,NA
+Dacne_notata,ForestBeetles,FALSE,NA,Dacne notata,NA,NA
+Dacne_pontica,ForestBeetles,FALSE,NA,Dacne pontica,NA,NA
+Danosoma_conspersum,ForestBeetles,TRUE,TRUE,Danosoma conspersum,Vulnerable,gen
+Danosoma_fasciatum,ForestBeetles,TRUE,TRUE,Danosoma fasciatum,Endangered,gen
+Denticollis_borealis,ForestBeetles,TRUE,TRUE,Denticollis borealis,Vulnerable,decid
+Dermestoides_sanguinicollis,ForestBeetles,TRUE,NA,Dermestoides sanguinicollis,NA,gen
+Derodontus_macularis,ForestBeetles,FALSE,NA,Derodontus macularis,NA,NA
+Diacanthous_undulatus,ForestBeetles,FALSE,FALSE,Diacanthous undulatus,Least concern,NA
+Dicerca_aenea,ForestBeetles,TRUE,NA,Dicerca aenea,NA,decid
+Dicerca_alni,ForestBeetles,TRUE,NA,Dicerca alni,NA,decid
+Dicerca_berolinensis,ForestBeetles,FALSE,NA,Dicerca berolinensis,NA,NA
+Dicerca_furcata,ForestBeetles,TRUE,NA,Dicerca furcata,NA,gen
+Dicerca_moesta,ForestBeetles,TRUE,TRUE,Dicerca moesta,Vulnerable,conif
+Dircaea_australis,ForestBeetles,TRUE,NA,Dircaea australis,NA,decid
+Dircaea_quadriguttata,ForestBeetles,FALSE,NA,Dircaea quadriguttata,NA,NA
+Dirrhagofarsus_attenuatus,ForestBeetles,FALSE,NA,Dirrhagofarsus attenuatus,NA,NA
+Ditylus_laevis,ForestBeetles,FALSE,NA,Ditylus laevis,NA,NA
+Dolichocis_laricinus,ForestBeetles,FALSE,NA,Dolichocis laricinus,NA,NA
+Dorcatoma_ambjoerni,ForestBeetles,TRUE,NA,Dorcatoma ambjoerni,NA,decid
+Dorcatoma_flavicornis,ForestBeetles,TRUE,TRUE,Dorcatoma flavicornis,Endangered,decid
+Dreposcia_umbrina,ForestBeetles,TRUE,NA,Dreposcia umbrina,NA,decid
+Elater_ferrugineus,ForestBeetles,TRUE,TRUE,Rusty click beetle,Critically endangered,decid
+Eledonoprius_armatus,ForestBeetles,TRUE,NA,Eledonoprius armatus,NA,decid
+Endecatomus_reticulatus,ForestBeetles,FALSE,NA,Endecatomus reticulatus,NA,NA
+Endophloeus_marcovichianus,ForestBeetles,FALSE,NA,Endophloeus marcovichianus,NA,NA
+Enicmus_apicalis,ForestBeetles,TRUE,TRUE,Enicmus apicalis,Vulnerable,conif
+Ennearthron_palmi,ForestBeetles,TRUE,NA,Ennearthron palmi,NA,decid
+Epierus_comptus,ForestBeetles,FALSE,NA,Epierus comptus,NA,NA
+Ernobius_explanatus,ForestBeetles,TRUE,NA,Ernobius explanatus,NA,conif
+Ernobius_kiesenwetteri,ForestBeetles,FALSE,NA,Ernobius kiesenwetteri,NA,NA
+Ernobius_laticollis,ForestBeetles,FALSE,NA,Ernobius laticollis,NA,NA
+Euryommatus_mariae,ForestBeetles,FALSE,NA,Euryommatus mariae,NA,NA
+Eurythyrea_austriaca,ForestBeetles,FALSE,NA,Eurythyrea austriaca,NA,NA
+Eurythyrea_quercus,ForestBeetles,FALSE,NA,Eurythyrea quercus,NA,NA
+Euryusa_coarctata,ForestBeetles,TRUE,NA,Euryusa coarctata,NA,decid
+Evodinus_borealis,ForestBeetles,TRUE,TRUE,Evodinus borealis,Endangered,conif
+Farsus_dubius,ForestBeetles,FALSE,NA,Farsus dubius,NA,NA
+Gasterocercus_depressirostris,ForestBeetles,FALSE,NA,Gasterocercus depressirostris,NA,NA
+Gastrallus_immarginatus,ForestBeetles,TRUE,TRUE,Gastrallus immarginatus,Endangered,decid
+Gnathacmaeops_pratensis,ForestBeetles,FALSE,TRUE,Gnathacmaeops pratensis,Endangered,NA
+Gnorimus_variabilis,ForestBeetles,TRUE,NA,Gnorimus variabilis,NA,decid
+Grynocharis_oblonga,ForestBeetles,TRUE,TRUE,Grynocharis oblonga,Vulnerable,gen
+Gyrophaena_nitidula,ForestBeetles,FALSE,NA,Gyrophaena nitidula,NA,NA
+Hesperus_rufipennis,ForestBeetles,FALSE,NA,Hesperus rufipennis,NA,NA
+Hexarthrum_duplicatum,ForestBeetles,FALSE,NA,Hexarthrum duplicatum,NA,NA
+Hololepta_plana,ForestBeetles,TRUE,TRUE,Hololepta plana,Near threatened,decid
+Hymenophorus_doublieri,ForestBeetles,TRUE,NA,Hymenophorus doublieri,NA,conif
+Ischnodes_sanguinicollis,ForestBeetles,TRUE,NA,Ischnodes sanguinicollis,NA,decid
+Lacon_lepidopterus,ForestBeetles,FALSE,NA,Lacon lepidopterus,NA,NA
+Lacon_punctatus,ForestBeetles,FALSE,NA,Lacon punctatus,NA,NA
+Lacon_querceus,ForestBeetles,TRUE,NA,Lacon querceus,NA,decid
+Laemophloeus_muticus,ForestBeetles,TRUE,NA,Laemophloeus muticus,NA,decid
+Lasconotus_jelskii,ForestBeetles,TRUE,NA,Lasconotus jelskii,NA,conif
+Latridius_brevicollis,ForestBeetles,TRUE,NA,Latridius brevicollis,NA,decid
+Leiestes_seminiger,ForestBeetles,FALSE,NA,Leiestes seminiger,NA,NA
+Lichenophanes_varius,ForestBeetles,FALSE,NA,Lichenophanes varius,NA,NA
+Limoniscus_violaceus,ForestBeetles,FALSE,NA,Limoniscus violaceus,NA,NA
+Lopheros_lineatus,ForestBeetles,FALSE,NA,Lopheros lineatus,NA,NA
+Lordithon_pulchellus,ForestBeetles,TRUE,NA,Lordithon pulchellus,NA,gen
+Lordithon_speciosus,ForestBeetles,TRUE,NA,Lordithon speciosus,NA,gen
+Macroleptura_thoracica,ForestBeetles,FALSE,NA,Macroleptura thoracica,NA,NA
+Megapenthes_lugens,ForestBeetles,FALSE,NA,Megapenthes lugens,NA,NA
+Melandrya_barbata,ForestBeetles,TRUE,TRUE,Melandrya barbata,Endangered,decid
+Melandrya_caraboides,ForestBeetles,TRUE,TRUE,Melandrya caraboides,Vulnerable,decid
+Mesosa_curculionoides,ForestBeetles,TRUE,TRUE,Mesosa curculionoides,Endangered,decid
+Microrhagus_pyrenaeus,ForestBeetles,FALSE,NA,Microrhagus pyrenaeus,NA,NA
+Mycetochara_obscura,ForestBeetles,TRUE,TRUE,Mycetochara obscura,Vulnerable,gen
+Mycetochara_quadrimaculata,ForestBeetles,FALSE,NA,Mycetochara quadrimaculata,NA,NA
+Mycetoma_suturale,ForestBeetles,FALSE,NA,Mycetoma suturale,NA,NA
+Mycetophagus_ater,ForestBeetles,FALSE,NA,Mycetophagus ater,NA,NA
+Mycetophagus_decempunctatus,ForestBeetles,TRUE,NA,Mycetophagus decempunctatus,NA,decid
+Neatus_picipes,ForestBeetles,FALSE,NA,Neatus picipes,NA,NA
+Necydalis_major,ForestBeetles,TRUE,TRUE,Necydalis major,Near threatened,gen
+Necydalis_ulmi,ForestBeetles,FALSE,NA,Necydalis ulmi,NA,NA
+Nematodes_filum,ForestBeetles,FALSE,NA,Nematodes filum,NA,NA
+Nivellia_sanguinosa,ForestBeetles,TRUE,NA,Nivellia sanguinosa,NA,decid
+Nothorhina_muricata,ForestBeetles,FALSE,NA,Nothorhina muricata,NA,NA
+Olisthaerus_substriatus,ForestBeetles,TRUE,NA,Olisthaerus substriatus,NA,gen
+Omoglymmius_germari,ForestBeetles,FALSE,NA,Omoglymmius germari,NA,NA
+Orchesia_fasciata,ForestBeetles,TRUE,FALSE,Orchesia fasciata,Least concern,gen
+Osmoderma_eremita,ForestBeetles,TRUE,TRUE,Hermit beetle or Russian leather beetle,Critically endangered,decid
+Osmoderma_eremita_s.l,ForestBeetles,FALSE,NA,Osmoderma eremita s.l,NA,NA
+Osphya_bipunctata,ForestBeetles,TRUE,TRUE,Osphya bipunctata,Endangered,decid
+Otho_sphondyloides,ForestBeetles,FALSE,NA,Otho sphondyloides,NA,NA
+Oxylaemus_variolosus,ForestBeetles,FALSE,NA,Oxylaemus variolosus,NA,NA
+Peltis_grossa,ForestBeetles,TRUE,TRUE,Peltis grossa,Endangered,gen
+Philothermus_evanescens,ForestBeetles,FALSE,NA,Philothermus evanescens,NA,NA
+Phryganophilus_auritus,ForestBeetles,FALSE,NA,Phryganophilus auritus,NA,NA
+Phryganophilus_ruficollis,ForestBeetles,TRUE,TRUE,Phryganophilus ruficollis,Endangered,gen
+Phymatura_brevicollis,ForestBeetles,TRUE,NA,Phymatura brevicollis,NA,conif
+Platydema_dejeani,ForestBeetles,FALSE,NA,Platydema dejeani,NA,NA
+Platylomalus_complanatus,ForestBeetles,FALSE,TRUE,Platylomalus complanatus,Endangered,NA
+Platyrhinus_resinosus,ForestBeetles,FALSE,TRUE,Platyrhinus resinosus,Near threatened,NA
+Platysoma_deplanatum,ForestBeetles,TRUE,NA,Platysoma deplanatum,NA,gen
+Pleganophorus_bispinosus,ForestBeetles,FALSE,NA,Pleganophorus bispinosus,NA,NA
+Podeonius_acuticornis,ForestBeetles,FALSE,NA,Podeonius acuticornis,NA,NA
+Prionychus_melanarius,ForestBeetles,TRUE,NA,Prionychus melanarius,NA,decid
+Prostomis_mandibularis,ForestBeetles,TRUE,NA,Prostomis mandibularis,NA,gen
+Protaetia_(Liocola)_marmorata,ForestBeetles,FALSE,TRUE,Protaetia (Liocola) marmorata,Vulnerable,NA
+Pycnomerus_terebrans,ForestBeetles,FALSE,NA,Pycnomerus terebrans,NA,NA
+Pytho_abieticola,ForestBeetles,TRUE,TRUE,Pytho abieticola,Critically endangered,gen
+Pytho_kolwensis,ForestBeetles,TRUE,NA,Pytho kolwensis,NA,gen
+Quedius_infuscatus,ForestBeetles,TRUE,NA,Quedius infuscatus,NA,decid
+Quedius_truncicola,ForestBeetles,TRUE,NA,Quedius truncicola,NA,decid
+Reitterelater_dubius,ForestBeetles,FALSE,NA,Reitterelater dubius,NA,NA
+Rhizophagus_brancsiki,ForestBeetles,TRUE,NA,Rhizophagus brancsiki,NA,decid
+Rhopalocerus_rondanii,ForestBeetles,FALSE,NA,Rhopalocerus rondanii,NA,NA
+Rhyncolus_reflexus,ForestBeetles,FALSE,NA,Rhyncolus reflexus,NA,NA
+Rhysodes_sulcatus,ForestBeetles,TRUE,NA,Rhysodes sulcatus,NA,conif
+Rosalia_alpina,ForestBeetles,FALSE,NA,Rosalia alpina,NA,NA
+Rushia_parreyssi,ForestBeetles,TRUE,NA,Rushia parreyssi,NA,conif
+Saperda_punctata,ForestBeetles,FALSE,NA,Saperda punctata,NA,NA
+Sepedophilus_binotatus,ForestBeetles,FALSE,NA,Sepedophilus binotatus,NA,NA
+Stagetus_borealis,ForestBeetles,TRUE,TRUE,Stagetus borealis,Near threatened,gen
+Stenichnus_foveola,ForestBeetles,FALSE,NA,Stenichnus foveola,NA,NA
+Stephanopachys_linearis,ForestBeetles,TRUE,NA,Stephanopachys linearis,NA,conif
+Stephanopachys_substriatus,ForestBeetles,TRUE,NA,Stephanopachys substriatus,NA,conif
+Stictoleptura_erythroptera,ForestBeetles,FALSE,NA,Stictoleptura erythroptera,NA,NA
+Stictoleptura_variicornis,ForestBeetles,FALSE,NA,Stictoleptura variicornis,NA,NA
+Synchita_separanda,ForestBeetles,TRUE,NA,Synchita separanda,NA,decid
+Tachyusida_gracilis,ForestBeetles,TRUE,NA,Tachyusida gracilis,NA,decid
+Temnochila_caerulea,ForestBeetles,FALSE,NA,Temnochila caerulea,NA,NA
+Tenebrio_opacus,ForestBeetles,TRUE,NA,Tenebrio opacus,NA,decid
+Teredus_cylindricus,ForestBeetles,TRUE,NA,Teredus cylindricus,NA,decid
+Teredus_opacus,ForestBeetles,FALSE,NA,Teredus opacus,NA,NA
+Thambus_friwaldszkyi,ForestBeetles,FALSE,NA,Thambus friwaldszkyi,NA,NA
+Thoracophorus_corticinus,ForestBeetles,FALSE,NA,Thoracophorus corticinus,NA,NA
+Trachypachus_zetterstedti,ForestBeetles,FALSE,TRUE,Trachypachus zetterstedti,Vulnerable,NA
+Tragosoma_depsarium,ForestBeetles,TRUE,TRUE,Tragosoma depsarium,Vulnerable,conif
+Trigonurus_mellyi,ForestBeetles,FALSE,NA,Trigonurus mellyi,NA,NA
+Triplax_collaris,ForestBeetles,FALSE,NA,Triplax collaris,NA,NA
+Triplax_elongata,ForestBeetles,FALSE,NA,Triplax elongata,NA,NA
+Triplax_melanocephala,ForestBeetles,FALSE,NA,Triplax melanocephala,NA,NA
+Tritoma_subbasalis,ForestBeetles,FALSE,NA,Tritoma subbasalis,NA,NA
+Upis_ceramboides,ForestBeetles,TRUE,TRUE,Upis ceramboides,Critically endangered,decid
+Xestobium_austracum,ForestBeetles,FALSE,NA,Xestobium austracum,NA,NA
+Xestobium_rufovillosum,ForestBeetles,TRUE,FALSE,Deathwatch beetle,Least concern,gen
+Xylolaemus_fasciculosus,ForestBeetles,TRUE,NA,Xylolaemus fasciculosus,NA,conif
+Xylophilus_testaceus,ForestBeetles,FALSE,NA,Xylophilus testaceus,NA,NA
+Arnica_montana,vascularPlants,FALSE,TRUE,Mountain arnica,Endangered,NA
+Carex_atrata,vascularPlants,FALSE,FALSE,Black alpine sedge,Least concern,NA
+Fraxinus_excelsior,vascularPlants,FALSE,TRUE,European ash,Endangered,NA
+Fraxinus_excelsior,vascularPlants,FALSE,TRUE,European ash,Endangered,NA
+Juniperus_communis,vascularPlants,FALSE,FALSE,Common juniper,Least concern,NA
+Poa_glauca,vascularPlants,FALSE,FALSE,Glaucous bluegrass,Least concern,NA
+Ulmus_glabra,vascularPlants,FALSE,TRUE,Scots elm,Endangered,NA
+Gaurotes_virginea,longhornBeetles,FALSE,FALSE,Gaurotes virginea,Least concern,gen
+Tetropium_castaneum,longhornBeetles,FALSE,FALSE,Brown spruce longhorn beetle,Least concern,gen
+Acanthocinus_griseus,ForestBeetles,TRUE,TRUE,Acanthocinus griseus,Endangered,gen
+Aesalus_scarabaeoides,ForestBeetles,TRUE,NA,Aesalus scarabaeoides,NA,gen
+Allecula_rhenana,ForestBeetles,TRUE,NA,Allecula rhenana,NA,gen
+Ampedus_cardinalis,ForestBeetles,TRUE,NA,Ampedus cardinalis,NA,gen
+Ampedus_elegantulus,ForestBeetles,TRUE,NA,Ampedus elegantulus,NA,gen
+Ampedus_hjorti,ForestBeetles,TRUE,TRUE,Ampedus hjorti,Vulnerable,gen
+Anisoxya_fuscula,ForestBeetles,TRUE,TRUE,Anisoxya fuscula,Vulnerable,gen
+Anitys_rubens,ForestBeetles,TRUE,NA,Anitys rubens,NA,gen
+Bolitochara_lucida,ForestBeetles,TRUE,NA,Bolitochara lucida,NA,gen
+Buprestis_splendens,ForestBeetles,TRUE,NA,Buprestis splendens,NA,gen
+Calambus_bipustulatus,ForestBeetles,TRUE,TRUE,Calambus bipustulatus,Endangered,gen
+Cardiophorus_gramineus,ForestBeetles,TRUE,NA,Cardiophorus gramineus,NA,gen
+Cerambyx_cerdo,ForestBeetles,TRUE,NA,Cerambyx cerdo,NA,gen
+Colydium_filiforme,ForestBeetles,TRUE,NA,Colydium filiforme,NA,gen
+Corticaria_lapponica,ForestBeetles,TRUE,NA,Corticaria lapponica,NA,gen
+Corticaria_lateritia,ForestBeetles,TRUE,NA,Corticaria lateritia,NA,gen
+Corticeus_fasciatus,ForestBeetles,TRUE,NA,Corticeus fasciatus,NA,gen
+Corticeus_suturalis,ForestBeetles,TRUE,NA,Corticeus suturalis,NA,gen
+Cryptolestes_abietis,ForestBeetles,TRUE,NA,Cryptolestes abietis,NA,gen
+Cryptophagus_quercinus,ForestBeetles,TRUE,NA,Cryptophagus quercinus,NA,gen
+Denticollis_borealis,ForestBeetles,TRUE,TRUE,Denticollis borealis,Vulnerable,gen
+Dicerca_aenea,ForestBeetles,TRUE,NA,Dicerca aenea,NA,gen
+Dicerca_alni,ForestBeetles,TRUE,NA,Dicerca alni,NA,gen
+Dicerca_moesta,ForestBeetles,TRUE,TRUE,Dicerca moesta,Vulnerable,gen
+Dircaea_australis,ForestBeetles,TRUE,NA,Dircaea australis,NA,gen
+Dorcatoma_ambjoerni,ForestBeetles,TRUE,NA,Dorcatoma ambjoerni,NA,gen
+Dorcatoma_flavicornis,ForestBeetles,TRUE,TRUE,Dorcatoma flavicornis,Endangered,gen
+Dreposcia_umbrina,ForestBeetles,TRUE,NA,Dreposcia umbrina,NA,gen
+Elater_ferrugineus,ForestBeetles,TRUE,TRUE,Rusty click beetle,Critically endangered,gen
+Eledonoprius_armatus,ForestBeetles,TRUE,NA,Eledonoprius armatus,NA,gen
+Enicmus_apicalis,ForestBeetles,TRUE,TRUE,Enicmus apicalis,Vulnerable,gen
+Ennearthron_palmi,ForestBeetles,TRUE,NA,Ennearthron palmi,NA,gen
+Ernobius_explanatus,ForestBeetles,TRUE,NA,Ernobius explanatus,NA,gen
+Euryusa_coarctata,ForestBeetles,TRUE,NA,Euryusa coarctata,NA,gen
+Evodinus_borealis,ForestBeetles,TRUE,TRUE,Evodinus borealis,Endangered,gen
+Gastrallus_immarginatus,ForestBeetles,TRUE,TRUE,Gastrallus immarginatus,Endangered,gen
+Gnorimus_variabilis,ForestBeetles,TRUE,NA,Gnorimus variabilis,NA,gen
+Hololepta_plana,ForestBeetles,TRUE,TRUE,Hololepta plana,Near threatened,gen
+Hymenophorus_doublieri,ForestBeetles,TRUE,NA,Hymenophorus doublieri,NA,gen
+Ischnodes_sanguinicollis,ForestBeetles,TRUE,NA,Ischnodes sanguinicollis,NA,gen
+Lacon_querceus,ForestBeetles,TRUE,NA,Lacon querceus,NA,gen
+Laemophloeus_muticus,ForestBeetles,TRUE,NA,Laemophloeus muticus,NA,gen
+Lasconotus_jelskii,ForestBeetles,TRUE,NA,Lasconotus jelskii,NA,gen
+Latridius_brevicollis,ForestBeetles,TRUE,NA,Latridius brevicollis,NA,gen
+Melandrya_barbata,ForestBeetles,TRUE,TRUE,Melandrya barbata,Endangered,gen
+Melandrya_caraboides,ForestBeetles,TRUE,TRUE,Melandrya caraboides,Vulnerable,gen
+Mesosa_curculionoides,ForestBeetles,TRUE,TRUE,Mesosa curculionoides,Endangered,gen
+Mycetophagus_decempunctatus,ForestBeetles,TRUE,NA,Mycetophagus decempunctatus,NA,gen
+Nivellia_sanguinosa,ForestBeetles,TRUE,NA,Nivellia sanguinosa,NA,gen
+Osmoderma_eremita,ForestBeetles,TRUE,TRUE,Hermit beetle or Russian leather beetle,Critically endangered,gen
+Osphya_bipunctata,ForestBeetles,TRUE,TRUE,Osphya bipunctata,Endangered,gen
+Phymatura_brevicollis,ForestBeetles,TRUE,NA,Phymatura brevicollis,NA,gen
+Prionychus_melanarius,ForestBeetles,TRUE,NA,Prionychus melanarius,NA,gen
+Quedius_infuscatus,ForestBeetles,TRUE,NA,Quedius infuscatus,NA,gen
+Quedius_truncicola,ForestBeetles,TRUE,NA,Quedius truncicola,NA,gen
+Rhizophagus_brancsiki,ForestBeetles,TRUE,NA,Rhizophagus brancsiki,NA,gen
+Rhysodes_sulcatus,ForestBeetles,TRUE,NA,Rhysodes sulcatus,NA,gen
+Rushia_parreyssi,ForestBeetles,TRUE,NA,Rushia parreyssi,NA,gen
+Stephanopachys_linearis,ForestBeetles,TRUE,NA,Stephanopachys linearis,NA,gen
+Stephanopachys_substriatus,ForestBeetles,TRUE,NA,Stephanopachys substriatus,NA,gen
+Synchita_separanda,ForestBeetles,TRUE,NA,Synchita separanda,NA,gen
+Tachyusida_gracilis,ForestBeetles,TRUE,NA,Tachyusida gracilis,NA,gen
+Tenebrio_opacus,ForestBeetles,TRUE,NA,Tenebrio opacus,NA,gen
+Teredus_cylindricus,ForestBeetles,TRUE,NA,Teredus cylindricus,NA,gen
+Tragosoma_depsarium,ForestBeetles,TRUE,TRUE,Tragosoma depsarium,Vulnerable,gen
+Upis_ceramboides,ForestBeetles,TRUE,TRUE,Upis ceramboides,Critically endangered,gen
+Xylolaemus_fasciculosus,ForestBeetles,TRUE,NA,Xylolaemus fasciculosus,NA,gen

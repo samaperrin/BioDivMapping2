@@ -6,6 +6,7 @@ output: html_document
 ``` {r echo = FALSE}
 library(dplyr)
 library(ggplot2)
+source("../../../functions/models/joinFunctionalGroups.R")
 
 # Edit data frames to have same number of columns
 processedDataForCompilation <- lapply(1:length(processedData), FUN = function(x) {
@@ -44,7 +45,13 @@ We begin with basic information about the pipeline run.
 
 region <- attr(speciesDataList, "region")
 level <- attr(speciesDataList, "level")
-focalSpecies <- read.csv("../data/external/focalSpecies.csv")
+``` 
+
+``` {r echo = FALSE}
+focalSpecies <- read.csv("../../../data/external/focalSpecies.csv")
+``` 
+
+``` {r echo = FALSE}
 focalTaxa <- unique(na.omit(processedDataCompiled$taxa)) # unique(focalSpecies$taxonomicGroup)
 infoNames <- c("Date",
                "Taxa",
@@ -89,13 +96,33 @@ The following gives spatial density for observations across the surveyed region 
 ``` {r echo = FALSE}
 
 regionGeometry <- readRDS(paste0("../../../", folderName, "/regionGeometry.RDS"))
-for (i in 1:length(focalTaxa)) {
+for (i in seq_along(focalTaxa)) {
   focalTaxaGroup <- focalTaxa[i]
   processedDataShortened <- processedDataCompiled[processedDataCompiled$taxa == focalTaxaGroup,]
-print(ggplot(regionGeometry) +
-      geom_sf() +
-      geom_sf(data = processedDataShortened, colour = alpha('blue', 0.2)) +
-  ggtitle(focalTaxaGroup))
+  # Combine species by functionalGroup if requested
+  # functional groups in species with data for focal taxonomic group
+  focalSpeciesWithData <- focalSpecies[focalSpecies$species %in% unique(processedDataCompiled$simpleScientificName) &  # species with data
+                                        focalSpecies$taxonomicGroup %in% focalTaxaGroup,]  # and of focal taxa (in case same species in different taxa)
+  # if any species are to be modelled as functional groups
+  if(any(focalSpeciesWithData$functionalGroup != "")){
+    # update data
+    processedDataShortenedFunc <- joinFunctionalGroups(speciesData = processedDataShortened,
+        focalSpecies = focalSpeciesWithData) %>%
+        # replace ungrouped species with "ungrouped"
+        mutate(simpleScientificName = ifelse(species == simpleScientificName, "Ungrouped", simpleScientificName))
+    # plot
+    p <- ggplot(regionGeometry) +
+          geom_sf() +
+          geom_sf(data = processedDataShortenedFunc, colour = alpha('blue', 0.2)) +
+          facet_wrap(~simpleScientificName) + 
+          ggtitle(focalTaxaGroup)
+  } else {
+    p <- ggplot(regionGeometry) +
+          geom_sf() +
+          geom_sf(data = processedDataShortened, colour = alpha('blue', 0.2)) +
+      ggtitle(focalTaxaGroup)
+  }
+  print(p)
 }
 
 ```
