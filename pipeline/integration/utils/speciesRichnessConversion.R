@@ -31,6 +31,7 @@ regionGeometry_buffer <- project(vect(st_buffer(regionGeometry, 1)), blankRaster
 
 # Group taxa and create list
 focalTaxa <- unique(processedDataCompiled$taxa)
+focalTaxa <- focalTaxa[!is.na(focalTaxa)]
 taxaRasters <- list()
 
 # Stack the rasters for each taxa
@@ -38,6 +39,8 @@ taxaRasters <- lapply(focalTaxa, FUN = function(x) {
   processedTaxaData <- processedDataCompiled[processedDataCompiled$taxa == x,]
   processedPoints <- vect(processedTaxaData)
   speciesNames <- unique(processedPoints$simpleScientificName)
+  # omit points with no species name
+  speciesNames <- speciesNames[!is.na(speciesNames)]
   
   speciesPointList <- lapply(speciesNames, FUN = function(.x) {
     processedPointsSubset <- terra::subset(processedPoints, processedPoints$simpleScientificName == .x)
