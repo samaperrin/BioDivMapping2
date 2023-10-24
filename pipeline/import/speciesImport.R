@@ -19,19 +19,6 @@ sapply(list.files("functions/import/species", full.names = TRUE), source)
 ### 1. Preparation ####
 ###-----------------###
 
-
-# Run script to define geographical region and resolution we are working with 
-#extentCoords <- c(4.641979, 57.97976, 31.05787, 71.18488)
-#names(extentCoords) <- c("north", "south", "east", "west")
-if (!exists("level")) {level <- "county"}  # level can be country, county, municipality, or points (examples of points given below)
-if (!exists("region")) {region <- "50"}
-regionGeometry <- defineRegion(level, region)
-
-# Define initial species list.
-focalSpecies <- read.csv("data/external/focalSpecies.csv", header = T)
-focalSpecies <- focalSpecies[focalSpecies$selected,]
-focalTaxa <- unique(focalSpecies$taxonomicGroup)
-
 # Initialise folders for storage of all run data
 if (!exists("dateAccessed")) {
   dateAccessed <- as.character(Sys.Date())
@@ -42,6 +29,36 @@ if (!file.exists(folderName)) {
   dir.create(folderName)
   dir.create(tempFolderName)
 }
+
+# Run script to define geographical region and resolution we are working with 
+#extentCoords <- c(4.641979, 57.97976, 31.05787, 71.18488)
+#names(extentCoords) <- c("north", "south", "east", "west")
+if (!exists("level")) {level <- "county"}  # level can be country, county, municipality, or points (examples of points given below)
+if (!exists("region")) {region <- "50"}
+regionGeometry <- defineRegion(level, region)
+
+# Define initial species list.
+if(file.exists(paste0(folderName, "/focalSpecies.csv"))){
+    focalSpecies <- read.csv(paste0(folderName, "/focalSpecies.csv"), header = T)
+  } else {
+    focalSpecies <- read.csv("data/external/focalSpecies.csv", header = T)
+    # save for reference
+    write.csv(focalSpecies, paste0(folderName, "/focalSpecies.csv"), row.names = FALSE)
+  }
+# Determine if there are duplicates based on select columns
+duplicates_exist <- nrow(focalSpecies) != nrow(distinct(focalSpecies, species, taxonomicGroup, functionalGroup, selected))
+if(duplicates_exist) {
+  focalSpecies <- focalSpecies %>%
+    # Remove duplicates based on the key columns
+    distinct(species, taxonomicGroup, functionalGroup, selected, .keep_all = TRUE)
+  
+  # Save for reference
+  write.csv(focalSpecies, paste0(folderName, "/focalSpecies.csv"), row.names = FALSE)
+}
+
+# save to folderName as record
+focalSpecies <- focalSpecies[focalSpecies$selected,]
+focalTaxa <- unique(focalSpecies$taxonomicGroup)
 
 ###-----------------###
 ### 2. GBIF Import ####
