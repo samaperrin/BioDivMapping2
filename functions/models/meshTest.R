@@ -18,4 +18,6 @@ meshTest <- function(meshList, regionGeometry, print = TRUE) {
     ggplot2::geom_sf(data = st_transform(regionGeometry, modelCRS), fill = "white") +
     inlabru::gg(mesh)
   if (print == TRUE) {print(meshPlot)}
+  return(mesh)
 }
+
