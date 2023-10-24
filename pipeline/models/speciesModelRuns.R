@@ -29,7 +29,12 @@ if (!file.exists(modelFolderName)) {
 }
 
 # Import species list
-focalSpecies <- read.csv("data/external/focalSpecies.csv", header = T)
+# focalSpecies <- read.csv("data/external/focalSpecies.csv", header = T)
+if(file.exists(paste0(folderName, "/focalSpecies.csv"))){
+    focalSpecies <- read.csv(paste0(folderName, "/focalSpecies.csv"), header = T)
+  } else {
+    focalSpecies <- read.csv("data/external/focalSpecies.csv", header = T)
+  }
 focalSpecies <- focalSpecies[focalSpecies$selected,]
 focalTaxa <- unique(focalSpecies$taxonomicGroup)
 
