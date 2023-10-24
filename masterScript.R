@@ -49,8 +49,6 @@ source("pipeline/integration/speciesDataProcessing.R")
 # FAQ page of the shiny app. If you want to try out some potential meshes, you can do so using the
 # util file and editing the default list below.
 
-myMesh <- list(cutoff = 11000, max.edge=c(42000, 49000), offset= 80000)
-meshTest(myMesh, regionGeometry)
 
 # Once you've figured that out, you can start running the models. Remember that this script is the one that's 
 # likely to take the longest, so grab a coffee or other beverage of choice.
