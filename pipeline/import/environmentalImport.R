@@ -119,12 +119,16 @@ for (parameter in 1:length(selectedParameters)) {
   parameterList[[parameter]] <- rasterisedVersion
 }
 
-
-# Import and correctly project all covariate data selected in the csv file
+# crop each covariate to extent of regionGeometry_buffer
 parametersCropped <- lapply(parameterList, FUN = function(x) {
+  # scale(
+  #   crop(x,
+  #        project(regionGeometry_buffer, x), 
+  #        snap = "out", mask = T)
+  # )
   scale(
     crop(x,
-         project(regionGeometry_buffer, x), 
+         project(as.polygons(regionGeometry_buffer, extent = T), x), 
          snap = "out", mask = T)
   )
 })
